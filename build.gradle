@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.6.RELEASE'
+        springBootVersion = '2.1.6.RELEASE'
         springCloudVersion = 'Greenwich.SR2'
     }
     repositories {
@@ -33,10 +33,16 @@ repositories {
 
 dependencies {
     api("io.projectreactor:reactor-core")
+    api("io.projectreactor.netty:reactor-netty")
     api("org.springframework:spring-webflux")
+    api("com.fasterxml.jackson.core:jackson-databind")
+    api("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
+    api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
     testImplementation('io.projectreactor:reactor-test')
     implementation("org.slf4j:jcl-over-slf4j")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+    testImplementation("com.github.tomakehurst:wiremock-standalone:2.21.0")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.assertj:assertj-core")
 }
